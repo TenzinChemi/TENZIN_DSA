@@ -1,20 +1,15 @@
 N=int(input())
-maxSpeed=[]
 while(N>0):
     numberCar=int(input())
     speedCar=[]
     count=1
-    speedCar=[int(i) for i in input().split()][:numberCar]
+    l=[int(i) for i in input().split()][:numberCar]
     
-    if numberCar<=1:
-        maxSpeed.append(count)
-    else:    
-        for i in range(0,len(speedCar)-1):
-            
-            if speedCar[i] > speedCar[i+1]:
-                count+=1
-        maxSpeed.append(count)     
+    fast=l[0]
+    for i in range(1,numberCar):
+        if l[i]<=fast:
+            count+=1
+            fast=l[i]
     N-=1
-for i in maxSpeed:
-    print(i)
+    print(count)
 
